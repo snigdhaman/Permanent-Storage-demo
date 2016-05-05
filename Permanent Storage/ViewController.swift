@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var buttonText: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        NSUserDefaults.standardUserDefaults().setObject("Snigdhaman", forKey: "name")
+        let name = NSUserDefaults.standardUserDefaults().objectForKey("name") as! String
+        
+        buttonText.setTitle(name, forState: UIControlState.Normal)
+        print(name)
     }
 
     override func didReceiveMemoryWarning() {
